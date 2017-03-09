@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Daisykoo's Resume</title>
+	<link rel="icon" href="./dist/images/icon.jpeg" type="img/x-ico" />
+</head>
+<body>
+	<div id="terminal_cv">
+		<div id="container">
+			<p>Last login: {{lastlog}} on console</p>
+			<ul>
+		      <li :is="item.component" v-for="item in items" :more="item.more"></li>
+		    </ul>
+		</div>
+		<div class="footer">
+			<label class="header">{{header}}</label>
+			<span id="input">{{this.command}}</span><span id="cursor"></span>
+		</div>
+	</div>
+    <script src="./dist/build.js"></script>
+</body>
+</html>

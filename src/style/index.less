@@ -1,0 +1,49 @@
+@import url('normalize.less');
+
+@keyframes twinkle {
+	0 {background: #ddd}
+	50% {background: #ddd}
+	51% {background: #333}
+	100% {background: #333}
+}
+body {
+	background: #333;
+	color: #fff;
+	padding: 10px;
+	font-family: Menlo;
+	line-height: 1.2em;
+	p {
+		margin: 0;
+	}
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	
+	.footer {
+		&:before {
+			content: " ";
+			display: inline-block;
+			vertical-align: middle;
+		}
+		label, span {
+			vertical-align: middle;
+		}
+		#input {
+			background: rgba(255, 255, 255, .4);
+			color: yellow;
+		}
+		#cursor {
+			display: inline-block;
+			width: 10px;
+			height: 1.2em;
+			background: #ddd;
+			animation: twinkle 1s infinite;
+			-moz-animation: twinkle 1s infinite;	/* Firefox */
+			-webkit-animation: twinkle 1s infinite;	/* Safari 和 Chrome */
+			-o-animation: twinkle 1s infinite;
+		}
+	}
+	
+}
+
