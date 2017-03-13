@@ -13,9 +13,10 @@
 		      <li :is="item.component" v-for="item in items" :more="item.more"></li>
 		    </ul>
 		</div>
-		<div class="footer">
+		<div id="footer">
+			<span class="bing">bing</span>@<a class="user" href="http://daisykoo.rezelchen.com">daisykoo</a>:
 			<label class="header">{{header}}</label>
-			<span id="input">{{this.command}}</span><span id="cursor"></span>
+			<span id="input" class="command">{{this.command}}</span><span id="cursor"></span>
 		</div>
 	</div>
     <script src="./dist/build.js"></script>

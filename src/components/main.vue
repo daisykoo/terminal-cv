@@ -4,10 +4,7 @@
   <p>|——README</p>
   <p>|——resume</p>
   <p>|——projects</p>
-  <p v-for="prj in prjs">|&nbsp;&nbsp;|——
-    <a :href="prj.src" target="_Blank">{{prj.name}}</a>
-    <a :href="prj.git" target="_Blank">git</a>
-    <span>{{prj.desc}}</span>
+  <p v-for="prj in prjs">|&nbsp;&nbsp;|——<a :href="prj.git" target="_Blank">{{prj.name}}</a>
   </p>
   <p>|——daisykooResume.pdf</p>
   

@@ -1,5 +1,8 @@
 @import url('normalize.less');
-
+@yellow: yellow;
+@highLight: #ff55ff;
+@bing: #5accb8;
+@user: #285fd9;
 @keyframes twinkle {
 	0 {background: #ddd}
 	50% {background: #ddd}
@@ -7,11 +10,12 @@
 	100% {background: #333}
 }
 body {
+	min-width: 600px;
 	background: #333;
 	color: #fff;
 	padding: 10px;
-	font-family: Menlo;
-	line-height: 1.2em;
+    font-family: monospace, Monaco;
+	line-height: 1.3em;
 	p {
 		margin: 0;
 	}
@@ -19,8 +23,33 @@ body {
 		margin: 0;
 		padding: 0;
 	}
-	
-	.footer {
+	a {
+		color: #55ff55;
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	.highLight {
+		color: @highLight;
+	}
+	.command {
+		background: rgba(255, 255, 255, .3);
+		color: @yellow;
+	}
+	.yellow {
+		color: @yellow;
+	}
+	.header {
+		color: @yellow;
+	}
+	.bing {
+		color: @bing;
+	}
+	.user {
+		color: @user;
+	}
+	#footer {
 		&:before {
 			content: " ";
 			display: inline-block;
@@ -28,10 +57,6 @@ body {
 		}
 		label, span {
 			vertical-align: middle;
-		}
-		#input {
-			background: rgba(255, 255, 255, .4);
-			color: yellow;
 		}
 		#cursor {
 			display: inline-block;
@@ -44,6 +69,18 @@ body {
 			-o-animation: twinkle 1s infinite;
 		}
 	}
-	
+	.project {
+		.intro {
+			color: #ccc;
+			font-size: 14px;
+			line-height: 1.6em;
+		}
+		.skill {
+			font-size: 14px;
+			line-height: 1.6em;
+		}
+	}
 }
+
+
 

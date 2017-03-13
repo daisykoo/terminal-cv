@@ -11,8 +11,8 @@ export default {
       switch(this.more.type) {
         case 'command':
           return 'daisykoo: command not found: ';
-        case 'file': 
-          return 'cd: no such file or directory: '
+        default: 
+          return this.more.type + ': no such file or directory: '
       }
     }
   },

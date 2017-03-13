@@ -10,13 +10,5 @@ export default {
       readme: this.$store.state.data.readme
     }
   },
-  methods: {
-    
-  }
 }
 </script>
-<style lang="less">
-  body {
-    background: #333;
-  }
-</style>

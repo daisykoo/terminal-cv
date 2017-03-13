@@ -31,7 +31,7 @@ new Vue({
   		return (new Date()).toString();
   	},
   	header() {
-  		return this.pos + ' ➤';
+  		return this.pos + ' $';
   	}
   },
   components: {
@@ -49,12 +49,12 @@ new Vue({
   			ordArr = ord.split(" ");
   		this.command = '';
   		this.items.push({
-			component: 'print-order', 
-			more: {
-				pos: this.pos,
-				ord: ord
-			}
-		});
+  			component: 'print-order', 
+  			more: {
+  				pos: this.pos,
+  				ord: ord
+  			}
+  		});
   		if (ordArr.length === 1 && ord === "ls") {
   			this.items.push({component: this.dir[this.pos]});
   		} else if (ordArr.length === 2 && ordArr[0] === "cd") {
@@ -69,13 +69,14 @@ new Vue({
   				text: ord
   			}});
   		}
+      this.scrollBottom();
   	},
     cd(dir) {
       if (this.dir.hasOwnProperty(dir)) {
         this.pos = dir;
       } else {
         this.items.push({component: 'not-found', more: {
-          type: 'file',
+          type: 'cd',
           text: dir
         }});
       }
@@ -85,7 +86,7 @@ new Vue({
         this.items.push({component: this.file[file]});
       } else {
         this.items.push({component: 'not-found', more: {
-          type: 'file',
+          type: 'open',
           text: file
         }});
       }
@@ -98,8 +99,34 @@ new Vue({
   	},
   	keyHandler(key) {
   		this.command += String.fromCharCode(key);
-  	}
+  	},
+    scrollBottom() {
+      const scroller = setInterval(function(){
+        window.scrollBy(0, 10)
+        if (document.body.scrollTop+document.documentElement.clientHeight>=document.documentElement.scrollHeight) {
+            clearInterval(scroller);
+        }
+      });
+    },
+    intro(command) {
+      const self = this;
+      return new Promise((resolve, reject) => {
+        const group = command.split(""),
+            self = this;
+        let i = 0, max = group.length-1, printInterval;
+
+        printInterval = setInterval(function() {
+          self.command += group[i];
+          if (i < max) {i++} else {
+            clearInterval(printInterval);
+            self.addOrder();
+            resolve();
+          };
+        }, 300)
+      })
+    }
   },
+  // 初始介绍
   created() {
   	let self = this;
   	window.onkeydown = function(e) {
@@ -111,10 +138,29 @@ new Vue({
             e.preventDefault();
             self.specialKeyHandler(key);
         }
-  	}
+  	};
   	window.onkeypress = function(e) {
   		const key = e.which || e.keyCode;
   		self.keyHandler(key);
-  	}
+  	};
+    this.intro('open README')
+    .then(()=> {
+      return this.intro('-help')
+    })
+    .then(()=> {
+      return this.intro('cd project')
+    })
+    .then(()=> {
+      return this.intro('ls')
+    })
+    .then(()=> {
+      return this.intro('cd ~')
+    })
+    .then(() => {
+      return this.intro('open resume');
+    })
+    .then(() => {
+      return this.intro('ls');
+    })
   }
 })

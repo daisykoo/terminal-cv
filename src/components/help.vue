@@ -1,13 +1,11 @@
 <template>
 	<div class="help">
-    <p>first step: print `cd ${module name}` to switch module, module list:</p>
-    <p>|-about : my personal message</p>
-    <p>|-skill : skill list</p>
-    <p>|-project : personal project</p>
-    <p>|-language : language leval</p>
-    <p>exp: print <span class="code">cd about</span> switch to about module;</p>
-    <p>second step: print `ls` to show the content</p>
-    <p>last: print -help in any module to know more;</p>
+    You can control this resume  by typing commands in the terminal or by clicking the underlinked project link.
+    <p> Commands list: <span class="highLight">open cd ls -help download</span></p>
+    <p>* type <span class="highLight">"cd + [directory name]"</span> to change into a directory.</p>
+    <p>* type <span class="highLight">"ls"</span> to list the contents of that directory.</p>
+    <p>* type <span class="highLight">"open + [file name]"</span> to view the content file.</p>
+    <p>* </span>type <span class="highLight">"download"</span> to download the PDF resume.</p>
   </div>
 </template>
 

@@ -1,5 +1,9 @@
 <template>
-	<p class="print"><span>{{this.more.pos}} ➤ </span><span>{{this.more.ord}}</span></p>
+	<p class="print">
+    <span class="bing">bing</span>@<a class="user" href="http://daisykoo.rezelchen.com">daisykoo</a>:
+    <span class="yellow">{{this.more.pos}} $</span>
+    <span class="command">{{this.more.ord}}</span>
+  </p>
 </template>
 
 <script>
