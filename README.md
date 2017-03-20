@@ -2,6 +2,7 @@
 Change personal resume into a cool terminal
 模拟终端简历，基于Vue+Webpack单文件组件搭建。
 ## example
+[线上查看](http://daisykoo.rezelchen.com/resume/)
 查看例子请直接下载目录，直接打开index.html即可
 ## Usage
 修改简历数据转换成你的简历：
