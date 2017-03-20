@@ -1,7 +1,7 @@
 //按照'[]'内格式修改修改以下数据，即可定制属于你的终端简历。
 const data = {
 	//自我介绍[String]
-	readme: 'Welcome! I am DaisyKoo -- a web developer learning to build wonderful code. Hope that we can be partner and make cool stuff together!',
+	readme: 'Welcome! I am DaisyKoo -- a web developer keep learning to build wonderful code. Hope that we can be partner and make cool stuff together!',
 	//基本信息，属性和value值可以根据需要设置，页面中直接输出对象。
   resume: {    
 		Name: "daisykoo古潆延",    	
@@ -9,7 +9,7 @@ const data = {
 		Birth: "1993.5.19",
 		Mail: "daisykoo666@gmail.com",
 		Phone: "18682066846",
-		Blog: "daisykoo.rezelchen.com/blog", 
+		Blog: "http://www.jianshu.com/u/f926f87df42c", 
     // 技术对象：
     // 属性:技术盏名称
     // value值[Number]:技术熟练程度，10为满分（页面中会自动转换为进度条输出）。
@@ -66,6 +66,6 @@ const data = {
 			git: "https://github.com/daisykoo/luoo-player",
 		}],
 	//线下简历下载文件路径
-	download: './dist/古潆延-前端开发.pdf'
+	download: './dist/daisykooResume.pdf'
 }
 export {data};
