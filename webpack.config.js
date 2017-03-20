@@ -1,6 +1,6 @@
-var path = require('path')
-var webpack = require('webpack')
-
+const path = require('path')
+const webpack = require('webpack')
+const BabiliPlugin = require("babili-webpack-plugin");
 module.exports = {
   entry: './src/main.js',
   output: {
@@ -61,6 +61,7 @@ if (process.env.NODE_ENV === 'production') {
         NODE_ENV: '"production"'
       }
     }),
+    new BabiliPlugin(),
     new webpack.LoaderOptionsPlugin({
       minimize: true
     })

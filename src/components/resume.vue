@@ -7,11 +7,11 @@ export default {
   name: 'my-resume',
   data () {
     return {
-      	resume: this.$store.state.data.resume
+      	resume: this.$store.getters.formatResume
     }
   },
   created() {
-  	this.resume.Skills = this.getProgressBar(this.resume.Skills);
+  	// this.resume.Skills = this.getProgressBar(this.resume.Skills);
   },
   methods: {
     //转换技能数据为熟悉程度进度条

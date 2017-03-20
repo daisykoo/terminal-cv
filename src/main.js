@@ -8,6 +8,7 @@ import Help from './components/help.vue'
 import NotFound from './components/notFound.vue'
 import Main from './components/main.vue'
 import Print from './components/print.vue'
+import Download from './components/download.vue'
 
 require('./style/index.less')
 new Vue({
@@ -41,7 +42,8 @@ new Vue({
   	'my-project': Project,
   	'my-help': Help,
   	'not-found': NotFound,
-  	'print-order': Print
+  	'print-order': Print,
+    'down-load': Download
   },
   methods: {
   	addOrder() {
@@ -63,7 +65,9 @@ new Vue({
         this.open(ordArr[1]);
       } else if (ordArr.length === 1 && ordArr[0] === "-help") {
   			this.items.push({component: 'my-help'});
-  		} else {
+  		} else if (ordArr.length === 1 && ordArr[0] === "download") {
+        this.items.push({component: 'down-load'});
+      } else {
   			this.items.push({component: 'not-found', more: {
   				type: 'command',
   				text: ord
@@ -90,6 +94,9 @@ new Vue({
           text: file
         }});
       }
+    },
+    download() {
+      this.items.push({component: 'down-load'});
     },
   	specialKeyHandler(key) {
   		let oldCom = this.command;
@@ -122,11 +129,10 @@ new Vue({
             self.addOrder();
             resolve();
           };
-        }, 300)
+        }, 200)
       })
     }
   },
-  // 初始介绍
   created() {
   	let self = this;
   	window.onkeydown = function(e) {
@@ -143,6 +149,10 @@ new Vue({
   		const key = e.which || e.keyCode;
   		self.keyHandler(key);
   	};
+  },
+  mounted() {
+    document.getElementById('initMask').style.display = 'none';
+    // 初始介绍
     this.intro('open README')
     .then(()=> {
       return this.intro('-help')
@@ -157,10 +167,13 @@ new Vue({
       return this.intro('cd ~')
     })
     .then(() => {
-      return this.intro('open resume');
+      return this.intro('open resume')
     })
     .then(() => {
-      return this.intro('ls');
+      return this.intro('download')
+    })
+    .then(() => {
+      return this.intro('ls')
     })
   }
 })
